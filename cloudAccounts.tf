@@ -1,7 +1,7 @@
 ####ON PREM vSphere Infrastructure
 module "cloud_accounts_vsphere" {
-  source   = "sentania-labs/vmapps-vspherecloudaccount/vra"
-  version  = "0.5.0"
+  source  = "sentania-labs/vmapps-vspherecloudaccount/vra"
+  version = "0.5.0"
   for_each = {
     for ca in var.vsphere_accounts :
     ca.name => ca
