@@ -9,8 +9,8 @@ locals {
 }
 
 module "simpleIACblueprint" {
-
-  source = "./blueprint"
+  source  = "sentania-labs/vmapps-blueprint/vra"
+  version = "0.1.0"
 
   for_each = local.projects_expanded
 

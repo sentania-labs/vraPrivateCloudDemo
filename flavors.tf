@@ -1,5 +1,7 @@
 module "flavor_mappings" {
-  source     = "./flavor_profile"
+  source  = "sentania-labs/vmapps-flavor-profile/vra"
+  version = "0.1.0"
+
   depends_on = [time_sleep.wait_cloud_account_creation]
   for_each   = data.vra_region.all
   name       = "${each.value.name}-flv"
