@@ -26,7 +26,7 @@ locals {
           ),
           "-"
         ),
-        substr(p.project_id, 0, 12)
+        substr(p.id, 0, 12)
       )
     }
   }
