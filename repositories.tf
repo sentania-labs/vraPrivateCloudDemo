@@ -41,7 +41,10 @@ module "repository" {
 
   name       = each.value.project_key
   visibility = "public"
-  template   = "sentania-labs/vcf-lab-application-template"
+  template   = {
+    owner = "sentania-labs"
+    repository = "vcf-lab-application-template"
+  }
 
   plaintext_secrets = {
     VCFA_PROJECT_NAME      = each.value.project_name
