@@ -10,7 +10,7 @@ module "repository" {
     owner      = "sentania-labs"
     repository = "vcf-lab-application-template"
   }
-
+  archive_on_destroy = false
   plaintext_secrets = {
     VCFA_PROJECT_NAME      = replace(each.value.project.name, " ", "_")
     VCFA_PROJECT_ID        = each.value.project.id
