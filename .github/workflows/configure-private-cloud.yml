@@ -13,6 +13,10 @@ jobs:
     runs-on: [self-hosted, terraform]
 
     env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      
       TF_IN_AUTOMATION: "true"
       TF_INPUT: "false"
 
@@ -31,7 +35,6 @@ jobs:
       - name: Terraform Init
         run: |
              terraform init -migrate-state -input=false -upgrade \
-             -backend-config="conn_str=postgres://${{ secrets.PSQL_TF_USER }}:${{ secrets.PSQL_TF_PASS }}@${{ secrets.PSQL_TF_HOST }}:5433/${{ secrets.PSQL_TF_DB }}?sslmode=disable"
 
       - name: Terraform Validate
         run: terraform validate
