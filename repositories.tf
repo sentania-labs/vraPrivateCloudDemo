@@ -39,14 +39,14 @@ module "repository" {
 
   for_each = local.repo_defs
 
-  name        = each.value.project_key
-  visibility  = "public"
+  name                = each.value.project_key
+  visibility          = "public"
   template_repository = "sentania-labs/vcf-lab-application-template"
 
   variables = {
-    VCFA_PROJECT_NAME       = each.value.project_name
-    VCFA_PROJECT_KEY        = each.value.project_key
-    VCFA_PROJECT_ID         = each.value.project_id
-    VCFA_ORGANIZATION_NAME  = var.vcfa_organization
+    VCFA_PROJECT_NAME      = each.value.project_name
+    VCFA_PROJECT_KEY       = each.value.project_key
+    VCFA_PROJECT_ID        = each.value.project_id
+    VCFA_ORGANIZATION_NAME = var.vcfa_organization
   }
 }
