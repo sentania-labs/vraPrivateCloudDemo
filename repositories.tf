@@ -39,9 +39,9 @@ module "repository" {
 
   for_each = local.repo_defs
 
-  name                = each.value.project_key
-  visibility          = "public"
-  template_repository = "sentania-labs/vcf-lab-application-template"
+  name       = each.value.project_key
+  visibility = "public"
+  template   = "sentania-labs/vcf-lab-application-template"
 
   plaintext_secrets = {
     VCFA_PROJECT_NAME      = each.value.project_name
