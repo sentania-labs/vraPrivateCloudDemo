@@ -175,3 +175,58 @@ variable "projects" {
     infra_tag      = string
   }))
 }
+
+variable "projects" {
+  description = "Map of vRA project definitions."
+  type = map(object({
+    project_name = string
+    description  = string
+    basename     = string
+
+    # Used by blueprint modules for variable substitution
+    infra_tag = string
+
+    placement_policy = optional(string, "DEFAULT")
+
+    roles = object({
+      administrators = list(object({
+        email = string
+        type  = string
+      }))
+      members = optional(list(object({
+        email = string
+        type  = string
+      })), [])
+      supervisors = optional(list(object({
+        email = string
+        type  = string
+      })), [])
+      viewers = optional(list(object({
+        email = string
+        type  = string
+      })), [])
+    })
+
+    # Project-level placement enforcement
+    constraints = optional(object({
+      extensibility = optional(list(object({
+        expression = string
+        mandatory  = bool
+      })), [])
+      network = optional(list(object({
+        expression = string
+        mandatory  = bool
+      })), [])
+      storage = optional(list(object({
+        expression = string
+        mandatory  = bool
+      })), [])
+      }), {
+      extensibility = []
+      network       = []
+      storage       = []
+    })
+
+    custom_properties = optional(map(string), {})
+  }))
+}

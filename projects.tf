@@ -5,15 +5,20 @@ locals {
 }
 
 module "projects" {
-  source     = "sentania-labs/project/vra"
-  version    = "0.5.0"
+  #source     = "sentania-labs/project/vra"
+  #version    = "0.5.0"
+  source     = "git::https://github.com/sentania-labs/terraform-vra-project?ref=8b6071fa4ac8e5b92a710cfee99eac1c13a971b0"
   depends_on = [time_sleep.wait_cloud_account_creation]
   for_each   = var.projects
 
-  project_name   = each.value.name
-  description    = each.value.description
-  administrators = each.value.administrators
-  basename       = each.value.basename
-  cloud_zone_ids = local.all_cloud_zone_ids
+  project_name      = each.value.project_name
+  description       = each.value.description
+  basename          = each.value.basename
+  cloud_zone_ids    = local.all_cloud_zone_ids
+  custom_properties = each.value.custom_properties
+  placement_policy  = each.value.placement_policy
+  constraints       = each.value.constraints
+
+  roles = each.value.roles
 }
 
