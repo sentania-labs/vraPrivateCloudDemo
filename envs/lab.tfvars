@@ -59,7 +59,7 @@ projects = {
           type  = "USER"
         },
         {
-          email = "labadmins@int.sentania.net"
+          email = "labAdmins@int.sentania.net"
           type  = "GROUP"
         }
       ]
@@ -69,7 +69,6 @@ projects = {
     project_name     = "vcf-lab-finance"
     description      = "This is a project created with TF - Do Not Edit"
     basename         = "vra-fnc-$${####}"
-    administrators   = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
     infra_tag        = "finance"
     placement_policy = "SPREAD"
     roles = {
@@ -79,7 +78,7 @@ projects = {
           type  = "USER"
         },
         {
-          email = "labadmins@int.sentania.net"
+          email = "labAdmins@int.sentania.net"
           type  = "GROUP"
         }
       ]
@@ -91,7 +90,6 @@ projects = {
     project_name     = "vcf-lab-human-resources"
     description      = "This is a project created with TF - Do Not Edit"
     basename         = "vra-hr-$${####}"
-    administrators   = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
     infra_tag        = "hr"
     placement_policy = "SPREAD"
     roles = {
@@ -101,7 +99,7 @@ projects = {
           type  = "USER"
         },
         {
-          email = "labadmins@int.sentania.net"
+          email = "labAdmins@int.sentania.net"
           type  = "GROUP"
         }
       ]
